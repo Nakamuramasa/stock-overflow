@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Parsedown;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,7 +23,7 @@ class Question extends Model
 
     public function getUrlAttribute()
     {
-        return route("questions.show", $this->id);
+        return route("questions.show", $this->slug);
     }
 
     public function getCreatedDateAttribute()
@@ -35,5 +36,11 @@ class Question extends Model
         if($this->best_answer_id) return "answered-accepted";
         if($this->answers > 0) return "answered";
         return "unanswered";
+    }
+
+    public function getBodyHtmlAttribute()
+    {
+        $parse = new Parsedown();
+        return $parse->text($this->body);
     }
 }
