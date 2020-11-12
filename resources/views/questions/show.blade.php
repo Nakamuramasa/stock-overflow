@@ -33,7 +33,7 @@
                                 <i class="fas fa-star fa-2x"></i>
                                 <span class="favorites-count">{{ $question->favorites_count }}</span>
                             </a>
-                            <form id="favorite-question-{{ $question->id }}" action="/questions/{{ $question->id }}/favorites" method="POST" style="display:none;">
+                            <form id="favorite-question-{{ $question->id }}" action="/stock_overflow/public/questions/{{ $question->id }}/favorites" method="POST" style="display:none;">
                                 @csrf
                                 @if ($question->is_favorited)
                                     @method ('DELETE')
