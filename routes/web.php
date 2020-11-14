@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'QuestionsController@index')->name('top');
 
 Auth::routes();
 
