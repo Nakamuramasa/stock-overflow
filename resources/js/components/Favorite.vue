@@ -23,9 +23,6 @@ export default {
         },
         endpoint(){
             return `/stock_overflow/public/questions/${this.id}/favorites`
-        },
-        signedIn(){
-            return window.Auth.signedIn;
         }
     },
     methods: {
