@@ -80,7 +80,7 @@ class Question extends Model
 
     public function getExcerptAttribute()
     {
-        return $this->exceprt(250);
+        return $this->excerpt(250);
     }
 
     public function excerpt($length)
